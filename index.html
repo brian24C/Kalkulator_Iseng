@@ -11,11 +11,21 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #f0f0f0;
+            background-image: url('img.jpg'); /* Ruta relativa a tu imagen */
+            background-size: cover;
+            background-position: center;
             font-family: Arial, sans-serif;
+            flex-direction: column;
+        }
+        h1 {
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px #000;
         }
         .calculator {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
             border-radius: 40px;
             padding: 20px;
             width: 300px;
@@ -52,6 +62,7 @@
     </style>
 </head>
 <body>
+    <h1>haz un cálculo y el resultado te dará mensaje oculto</h1>
     <div class="calculator">
         <div class="screen" id="screen">0</div>
         <div class="buttons">
@@ -72,45 +83,4 @@
             <button onclick="appendToScreen('3')">3</button>
             <button class="operator" onclick="appendToScreen('+')">+</button>
             <button onclick="appendToScreen('0')">0</button>
-            <button onclick="appendToScreen('.')">.</button>
-            <button class="equal" onclick="calculate()">=</button>
-        </div>
-    </div>
-
-    <script>
-        let screenValue = '0';
-    
-        function updateScreen() {
-            document.getElementById('screen').innerText = screenValue;
-        }
-    
-        function appendToScreen(value) {
-            if (screenValue === '0' && value !== '.') {
-                screenValue = value;
-            } else {
-                screenValue += value;
-            }
-            updateScreen();
-        }
-    
-        function clearScreen() {
-            screenValue = '0';
-            updateScreen();
-        }
-    
-        function calculate() {
-            try {
-                if (eval(screenValue) === 28) {
-                    screenValue = 'I LOVE YOU ❤️';
-                } else {
-                    screenValue = eval(screenValue).toString();
-                }
-                updateScreen();
-            } catch (error) {
-                screenValue = 'Error';
-                updateScreen();
-            }
-        }
-    </script>
-</body>
-</html>
+            <button oncl
